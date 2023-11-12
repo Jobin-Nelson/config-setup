@@ -1,0 +1,13 @@
+---
+- name: "Configure Unit"
+  hosts: localhost
+  connection: local
+  roles:
+    - role: install_packages
+      tags: packages
+
+    - role: install_python
+      tags: python
+
+    - role: install_lazyvim
+      tags: lazyvim

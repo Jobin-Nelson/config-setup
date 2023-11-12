@@ -1,0 +1,60 @@
+---
+- name: "Install Archlinux Packages"
+  tags: install_packages
+  become: true
+  community.general.pacman:
+    name:
+      - git
+      - man-db
+      - man-pages
+      - curl
+      - unzip
+      - tmux
+      - zoxide
+      - fzf
+      - ripgrep
+      - fd
+      - nsxiv
+      - jq
+      - neovim
+      - vim
+      - alacritty
+      - zathura
+      - zathura-pdf-mupdf
+      - mpv
+      - tk
+      - starship
+      - podman
+      - aria2
+      - rsync
+      - pacman-contrib
+      - netcat
+      - neofetch
+      - flatpak
+      - nodejs
+      - npm
+    state: present
+    update_cache: true
+
+- name: "Installing Cronie"
+  tags: install_packages
+  community.general.pacman:
+    name: cronie
+    state: present
+  notify: start_cronie
+
+- name: "Installing Syncthing"
+  tags: install_packages
+  community.general.pacman:
+    name: syncthing
+    state: present
+  notify: start_syncthing
+
+- name: "Install Flatpak Packages"
+  tags: install_packages
+  community.general.flatpak:
+    name:
+      - com.github.IsmaelMartinez.teams_for_linux
+      - com.github.tchx84.Flatseal
+      - org.gnome.Boxes
+    state: present

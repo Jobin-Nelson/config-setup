@@ -1,0 +1,5 @@
+---
+# handlers file for install_python
+- name: install_py11
+  shell:
+    cmd: "pyenv install 3.11.1 --skip-existing && pyenv global 3.11.1"

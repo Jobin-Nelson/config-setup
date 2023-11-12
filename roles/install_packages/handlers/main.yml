@@ -1,0 +1,13 @@
+---
+# handlers file for install_packages
+- name: start_cronie
+  service:
+    name: cronie
+    state: started
+    enabled: yes
+
+- name: start_syncthing
+  service:
+    name: "syncthing@{{ ansible_env.USER }}"
+    state: started
+    enabled: yes

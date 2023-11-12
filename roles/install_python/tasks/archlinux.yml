@@ -1,0 +1,16 @@
+---
+# tasks file for install_python
+- name: "Install Python"
+  become: true
+  community.general.pacman:
+    name: pyenv
+    state: latest
+    update_cache: true
+  notify: install_py11
+
+- name: "Install Poetry"
+  become: true
+  community.general.pacman:
+    name: python-poetry
+    state: latest
+    update_cache: true
