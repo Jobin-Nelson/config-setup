@@ -1,6 +1,5 @@
 ---
 - name: "Install Archlinux Packages"
-  tags: install_packages
   become: true
   community.general.pacman:
     name:
@@ -36,22 +35,19 @@
     state: present
     update_cache: true
 
-- name: "Installing Cronie"
-  tags: install_packages
+- name: "Install Cronie"
   community.general.pacman:
     name: cronie
     state: present
   notify: start_cronie
 
-- name: "Installing Syncthing"
-  tags: install_packages
+- name: "Install Syncthing"
   community.general.pacman:
     name: syncthing
     state: present
   notify: start_syncthing
 
 - name: "Install Flatpak Packages"
-  tags: install_packages
   community.general.flatpak:
     name:
       - com.github.IsmaelMartinez.teams_for_linux

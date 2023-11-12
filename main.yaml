@@ -11,3 +11,9 @@
 
     - role: install_lazyvim
       tags: lazyvim
+
+    - role: install_rust
+      tags: rust
+
+    - role: setup_aur
+      tags: paru

@@ -1,0 +1,25 @@
+---
+# tasks file for setup-aur
+- name: "Check if paru is installed"
+  shell: "command -v paru"
+  register: paru_exists
+  ignore_errors: yes
+
+- name: "Install Base Devel"
+  when: paru_exists is failed
+  community.general.pacman:
+    name:
+      - base-devel
+      - git
+    update_cache: true
+    state: present
+
+- name: "Download Paru"
+  when: paru_exists is failed
+  ansible.builtin.git:
+    repo: "https://aur.archlinux.org/paru.git"
+    dest: "/tmp/paru"
+
+- name: "Install Paru"
+  when: paru_exists is failed
+  shell: "cd /tmp/paru/ && makepkg -si"

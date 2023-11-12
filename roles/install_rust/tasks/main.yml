@@ -1,0 +1,22 @@
+---
+# tasks file for install_rust
+- name: "Check if cargo is installed"
+  shell: "command -v cargo"
+  register: cargo_exists
+  ignore_errors: yes
+
+- name: "Download Rust"
+  when: cargo_exists is failed
+  get_url:
+    url: "https://sh.rustup.rs"
+    dest: "/tmp/sh.rustup.rs"
+    mode: "0755"
+    force: "yes"
+
+- name: "Install Rust"
+  when: cargo_exists is failed
+  shell: "/tmp/sh.rustup.rs -y"
+
+- name: "Install Rust Analyzer"
+  when: cargo_exists is failed
+  shell: ". $HOME/.cargo/env && rustup component add rust-analyzer"
