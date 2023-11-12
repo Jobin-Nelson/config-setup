@@ -17,3 +17,6 @@
 
     - role: setup_aur
       tags: paru
+
+    - role: setup_dotfiles
+      tags: dotfiles
