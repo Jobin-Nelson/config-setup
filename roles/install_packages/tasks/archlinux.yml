@@ -32,19 +32,19 @@
       - flatpak
       - nodejs
       - npm
-    state: present
+    state: latest
     update_cache: true
 
 - name: "Install Cronie"
   community.general.pacman:
     name: cronie
-    state: present
+    state: latest
   notify: start_cronie
 
 - name: "Install Syncthing"
   community.general.pacman:
     name: syncthing
-    state: present
+    state: latest
   notify: start_syncthing
 
 - name: "Install Flatpak Packages"
@@ -52,5 +52,5 @@
     name:
       - com.github.IsmaelMartinez.teams_for_linux
       - com.github.tchx84.Flatseal
-      - org.gnome.Boxes
-    state: present
+      # - org.gnome.Boxes
+    state: latest

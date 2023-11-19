@@ -5,5 +5,5 @@
     repo: "git@github.com:Jobin-Nelson/.dotfiles.git"
     dest: "{{ ansible_env.HOME }}/.dotfiles"
     bare: true
-    update: false
+    update: true
   notify: checkout_dotfiles
