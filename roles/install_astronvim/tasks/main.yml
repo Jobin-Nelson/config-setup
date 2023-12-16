@@ -1,0 +1,14 @@
+---
+# tasks file for install_astronvim
+- name: "Install Astronvim"
+  tags: astronvim
+  ansible.builtin.git:
+    repo: "https://github.com/AstroNvim/AstroNvim"
+    dest: "{{ ansible_env.HOME }}/.config/nvim"
+    update: false
+- name: "Setup Astronvim User Config"
+  tags: astronvim
+  ansible.builtin.git:
+    repo: "git@github.com:Jobin-Nelson/astronvim_config.git"
+    dest: "{{ ansible_env.HOME }}/.config/nvim/lua/user"
+    update: true
