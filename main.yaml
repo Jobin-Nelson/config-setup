@@ -13,7 +13,7 @@
       tags: python
 
     - role: install_nvm
-      tags: python
+      tags: nvm
 
     - role: install_rust
       tags: rust
