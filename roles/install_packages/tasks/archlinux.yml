@@ -31,8 +31,6 @@
       - neofetch
       - flatpak
       - luarocks
-      - nodejs
-      - npm
     state: latest
     update_cache: true
 

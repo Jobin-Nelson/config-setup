@@ -1,0 +1,11 @@
+---
+# tasks file for install_nvm
+- name: "Install NVM"
+  ansible.builtin.shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.config/nvm/nvm.sh"
+
+- name: "Install node"
+  ansible.builtin.shell: /bin/bash -c "source {{ ansible_env.HOME }}/.config/nvm/nvm.sh && nvm install 21 && nvm alias default 21"
+  args:
+    creates: "{{ ansible_env.HOME }}/.config/nvm/alias"

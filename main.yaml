@@ -3,11 +3,20 @@
   hosts: localhost
   connection: local
   roles:
+    - role: setup_dotfiles
+      tags: dotfiles
+
     - role: install_packages
       tags: packages
 
     - role: install_python
       tags: python
+
+    - role: install_nvm
+      tags: python
+
+    - role: install_rust
+      tags: rust
 
     - role: install_astronvim
       tags: astronvim
@@ -15,11 +24,6 @@
     # - role: install_lazyvim
     #   tags: lazyvim
 
-    - role: install_rust
-      tags: rust
-
     - role: setup_aur
       tags: paru
 
-    - role: setup_dotfiles
-      tags: dotfiles
