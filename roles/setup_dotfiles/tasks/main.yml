@@ -6,5 +6,5 @@
     dest: "{{ ansible_env.HOME }}/.dotfiles"
     bare: true
     update: true
-    accept_newhostkey: true,
+    accept_newhostkey: true
   notify: checkout_dotfiles
