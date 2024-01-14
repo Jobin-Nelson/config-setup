@@ -30,6 +30,10 @@
       - netcat
       - neofetch
       - flatpak
+      - ttf-jetbrains-mono-nerd
+      - ttf-hack-nerd
+      - ttf-meslo-nerd
+      - ttf-sourcecodepro-nerd
     state: latest
     update_cache: true
 
