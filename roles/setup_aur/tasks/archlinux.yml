@@ -24,4 +24,4 @@
 
 - name: "Install Paru"
   when: paru_exists is failed
-  shell: ". $HOME/.cargo/env && cd /tmp/paru/ && makepkg -si"
+  shell: ". $HOME/.cargo/env && cd /tmp/paru/ && makepkg -si --noconfirm"
