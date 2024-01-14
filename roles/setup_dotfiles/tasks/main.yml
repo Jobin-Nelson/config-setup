@@ -2,9 +2,10 @@
 # tasks file for setup_dotfiles
 - name: "Download Dotfiles"
   ansible.builtin.git:
-    repo: "git@github.com:Jobin-Nelson/.dotfiles.git"
+    repo: git@github.com:Jobin-Nelson/.dotfiles.git
     dest: "{{ ansible_env.HOME }}/.dotfiles"
     bare: true
     update: true
     accept_newhostkey: true
+    key_file: "{{ ansible_env.HOME }}/.ssh/id_ed25519"
   notify: checkout_dotfiles
