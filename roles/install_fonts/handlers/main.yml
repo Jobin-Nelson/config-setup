@@ -1,0 +1,4 @@
+---
+# handlers file for install_fonts
+- name: load_font
+  ansible.builtin.shell: "fc-cache -f"

@@ -1,0 +1,20 @@
+---
+# tasks file for install_fonts
+- name: "Create Font Dir"
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/share/fonts"
+    state: directory
+    mode: '0755'
+
+- name: "Check JetBrainsMono Exists"
+  ansible.builtin.shell: "ls $HOME/.local/share/fonts/JetBrainsMono*"
+  register: jetbrainsmono_exists
+  ignore_errors: yes
+
+- name: "Download JetBrainsMono"
+  when: jetbrainsmono_exists is failed
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+    dest: "{{ ansible_env.HOME }}/.local/share/fonts/"
+    remote_src: yes
+  notify: load_font
