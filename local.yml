@@ -3,14 +3,15 @@
   hosts: localhost
   connection: local
   roles:
-    - role: setup_dotfiles
-      tags: dotfiles
 
     - role: install_packages
       tags: packages
 
     - role: setup_aur
       tags: paru
+
+    - role: setup_dotfiles
+      tags: dotfiles
 
     - role: install_python
       tags: python

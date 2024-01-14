@@ -38,12 +38,14 @@
     update_cache: true
 
 - name: "Install Cronie"
+  become: true
   community.general.pacman:
     name: cronie
     state: latest
   notify: start_cronie
 
 - name: "Install Syncthing"
+  become: true
   community.general.pacman:
     name: syncthing
     state: latest
@@ -55,4 +57,4 @@
       - com.github.IsmaelMartinez.teams_for_linux
       - com.github.tchx84.Flatseal
       # - org.gnome.Boxes
-    state: latest
+    state: present
