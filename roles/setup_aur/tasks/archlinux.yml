@@ -1,12 +1,13 @@
 ---
 # tasks file for setup-aur
 - name: "Check if paru is installed"
-  shell: "command -v paru"
+  shell: "command -v paru &> /dev/null"
   register: paru_exists
   ignore_errors: yes
 
 - name: "Install Base Devel"
   when: paru_exists is failed
+  become: true
   community.general.pacman:
     name:
       - base-devel
