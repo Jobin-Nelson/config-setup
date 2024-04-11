@@ -13,14 +13,17 @@
     - role: install_python
       tags: python
 
-    - role: install_nvm
-      tags: nvm
-
     - role: install_rust
       tags: rust
 
     - role: install_go
       tags: go
+
+    - role: install_node
+      tags: node
+
+    - role: setup_aur
+      tags: paru
 
     # - role: install_astronvim
     #   tags: astronvim
@@ -31,6 +34,6 @@
     # - role: install_fonts
     #   tags: fonts
 
-    - role: setup_aur
-      tags: paru
+    # - role: install_nvm
+    #   tags: nvm
 

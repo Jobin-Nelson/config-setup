@@ -6,6 +6,6 @@
     creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
 
 - name: "Install Node"
-  ansible.builtin.shell: /bin/bash -c "source {{ ansible_env.HOME }}/.nvm/nvm.sh && nvm install 21 && nvm alias default 21"
+  ansible.builtin.shell: /bin/bash -c "source {{ ansible_env.HOME }}/config/.nvm/nvm.sh && nvm install 21 && nvm alias default 21"
   args:
     creates: "{{ ansible_env.HOME }}/.nvm/alias"
