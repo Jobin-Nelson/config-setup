@@ -20,6 +20,7 @@
       - network-manager-applet
       - blueman
       - wlr-randr
+      - sddm
       - wofi
     state: latest
     update_cache: true
