@@ -35,7 +35,6 @@
       - ttf-meslo-nerd
       - ttf-sourcecodepro-nerd
       - net-tools
-      - gnome-browser-connector
     state: latest
     update_cache: true
 

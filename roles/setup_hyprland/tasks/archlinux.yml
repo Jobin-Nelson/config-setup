@@ -1,0 +1,25 @@
+---
+# tasks file for setup_hyprland
+- name: "Setup Hyprland"
+  become: true
+  community.general.pacman:
+    name:
+      - hyprland
+      - hyprpaper
+      - hyprlock
+      - dunst
+      - polkit-kde-agent
+      - waybar
+      - wl-clipboard
+      - grim
+      - slurp
+      - brightnessctl
+      - bluez
+      - bluez-utils
+      - pavucontrol
+      - network-manager-applet
+      - blueman
+      - wlr-randr
+      - wofi
+    state: latest
+    update_cache: true

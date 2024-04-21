@@ -1,0 +1,5 @@
+---
+# tasks file for setup_hyprland
+- name: "Install Packages"
+  import_tasks: archlinux.yml
+  when: ansible_facts['os_family'] | lower == 'archlinux'

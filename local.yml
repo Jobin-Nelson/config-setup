@@ -25,6 +25,9 @@
     - role: setup_aur
       tags: paru
 
+    - role: setup_hyprland
+      tags: hyprland
+
     # - role: install_astronvim
     #   tags: astronvim
 
