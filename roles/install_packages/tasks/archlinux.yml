@@ -28,7 +28,7 @@
       - rsync
       - pacman-contrib
       - netcat
-      - neofetch
+      - fastfetch
       - flatpak
       - ttf-jetbrains-mono-nerd
       - ttf-hack-nerd
@@ -58,7 +58,7 @@
 - name: "Install Flatpak Packages"
   community.general.flatpak:
     name:
-      - com.github.IsmaelMartinez.teams_for_linux
-      - com.github.tchx84.Flatseal
+      # - com.github.IsmaelMartinez.teams_for_linux
+      # - com.github.tchx84.Flatseal
       # - org.gnome.Boxes
     state: present
