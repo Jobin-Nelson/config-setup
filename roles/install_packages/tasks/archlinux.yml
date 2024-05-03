@@ -23,7 +23,6 @@
       - mpv
       - tk
       - starship
-      - docker
       - aria2
       - rsync
       - pacman-contrib
@@ -54,6 +53,13 @@
     name: syncthing
     state: latest
   notify: start_syncthing
+
+- name: "Install Docker"
+  become: true
+  community.general.pacman:
+    name: docker
+    state: present
+  notify: start_docker
 
 - name: "Install Flatpak Packages"
   community.general.flatpak:

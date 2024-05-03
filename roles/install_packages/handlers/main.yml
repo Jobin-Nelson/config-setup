@@ -13,3 +13,18 @@
     name: "syncthing@{{ ansible_env.USER }}"
     state: started
     enabled: yes
+
+- name: start_docker
+  become: true
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: start_docker
+  become: true
+  ansible.builtin.user:
+    name: "{{ ansible_env.USER }}"
+    groups: docker
+    append: true
+  
