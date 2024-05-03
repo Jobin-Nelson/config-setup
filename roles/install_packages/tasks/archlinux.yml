@@ -23,7 +23,7 @@
       - mpv
       - tk
       - starship
-      - podman
+      - docker
       - aria2
       - rsync
       - pacman-contrib
