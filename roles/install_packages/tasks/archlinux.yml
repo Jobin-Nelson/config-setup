@@ -59,7 +59,9 @@
 - name: "Install Docker"
   become: true
   community.general.pacman:
-    name: docker
+    name: 
+      - docker
+      - docker-compose
     state: present
   notify: start_docker
 
