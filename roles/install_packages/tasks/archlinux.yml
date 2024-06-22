@@ -36,7 +36,9 @@
       - ttf-cascadia-code-nerd
       - ttf-ubuntu-mono-nerd
       - ttf-roboto-mono-nerd
+      - ttf-recursive-nerd
       - net-tools
+      - bash-completion
     state: latest
     update_cache: true
 
