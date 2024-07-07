@@ -1,0 +1,6 @@
+- name: "Installing Python in ubuntu"
+  become: true
+  ansible.builtin.apt:
+    name: python3.11
+    state: latest
+    update_cache: true

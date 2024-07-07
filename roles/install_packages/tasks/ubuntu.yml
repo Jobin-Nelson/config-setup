@@ -1,0 +1,56 @@
+- name: Install Ubuntu Packages
+  become: true
+  ansible.builtin.apt:
+    name:
+      - git
+      - curl
+      - make
+      - build-essential
+      - unzip
+      - tmux
+      - zoxide
+      - ripgrep
+      - shellcheck
+      - fd-find
+      - jq
+      - vim
+      - libfuse2
+      - bash-completion
+    state: latest
+    update_cache: true
+
+- name: Installing Fastfetch
+  become: true
+  ansible.builtin.apt:
+    deb: >-
+      https://github.com/fastfetch-cli/fastfetch/releases/download/2.17.2/fastfetch-linux-amd64.deb
+    state: present
+    update_cache: true
+
+- name: Downloading Starship install script
+  ansible.builtin.get_url:
+    url: 'https://starship.rs/install.sh'
+    dest: /tmp/starship_install.sh
+    mode: '0755'
+  register: download_starship_install_script
+
+- name: Install Starship with install script
+  ansible.builtin.shell: |
+    /tmp/starship_install.sh --yes
+    rm -f /tmp/starship_install.sh
+  when: download_starship_install_script.changed
+
+- name: Installing Neovim
+  become: true
+  ansible.builtin.get_url:
+    url: 'https://github.com/neovim/neovim/releases/latest/download/nvim.appimage'
+    dest: /usr/local/bin/nvim
+    mode: '0755'
+
+- name: "Installing fzf"
+  become: true
+  ansible.builtin.unarchive:
+    src: 'https://github.com/junegunn/fzf/releases/download/0.53.0/fzf-0.53.0-linux_amd64.tar.gz'
+    dest: /usr/local/bin
+    remote_src: true
+

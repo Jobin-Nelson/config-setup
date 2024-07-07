@@ -1,5 +1,5 @@
 ---
-- name: "Install node"
+- name: "Install node in archlinux"
   become: true
   community.general.pacman:
     name:

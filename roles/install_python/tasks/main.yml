@@ -1,5 +1,9 @@
 ---
 # tasks file for install_python
-- name: "Install Python"
-  import_tasks: archlinux.yml
+- name: "Install Python in Archlinux"
+  ansible.builtin.import_tasks: archlinux.yml
   when: ansible_facts['os_family'] | lower == 'archlinux'
+
+- name: "Install Python in Ubuntu"
+  ansible.builtin.import_tasks: ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'

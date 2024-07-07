@@ -1,5 +1,9 @@
 ---
 # tasks file for install_packages
-- name: "Install Packages"
-  import_tasks: archlinux.yml
+- name: "Install Archlinux Packages"
+  ansible.builtin.import_tasks: archlinux.yml
   when: ansible_facts['os_family'] | lower == 'archlinux'
+
+- name: "Install Ubuntu Packages"
+  ansible.builtin.import_tasks: ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
