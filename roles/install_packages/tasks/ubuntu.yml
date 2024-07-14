@@ -42,10 +42,15 @@
 
 - name: Installing Neovim
   become: true
-  ansible.builtin.get_url:
-    url: 'https://github.com/neovim/neovim/releases/latest/download/nvim.appimage'
-    dest: /usr/local/bin/nvim
-    mode: '0755'
+  community.general.snap:
+    name: nvim
+
+# - name: Installing Neovim
+#   become: true
+#   ansible.builtin.get_url:
+#     url: 'https://github.com/neovim/neovim/releases/latest/download/nvim.appimage'
+#     dest: /usr/bin/nvim
+#     mode: '0755'
 
 - name: "Installing fzf"
   become: true
@@ -53,4 +58,9 @@
     src: 'https://github.com/junegunn/fzf/releases/download/0.53.0/fzf-0.53.0-linux_amd64.tar.gz'
     dest: /usr/local/bin
     remote_src: true
+
+- name: "Configure Locale"
+  community.general.locale_gen:
+    name: en_US.UTF-8
+    state: present
 
