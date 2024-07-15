@@ -6,6 +6,7 @@
     dest: "{{ ansible_env.HOME }}/.dotfiles"
     bare: true
     update: true
+    depth: 5
     accept_hostkey: false
     key_file: "{{ ansible_env.HOME }}/.ssh/id_ed25519"
   notify: checkout_dotfiles

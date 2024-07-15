@@ -5,4 +5,4 @@
     mkdir -p $HOME/playground/backup && mv $HOME/.{bash_profile,bashrc} $_
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout -f
-    git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule update --init
+    git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME submodule update --init --depth 5
