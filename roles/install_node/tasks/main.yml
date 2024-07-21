@@ -1,9 +1,19 @@
 ---
 # tasks file for install_node
-- name: "Install Node in Archlinux"
-  ansible.builtin.import_tasks: archlinux.yml
-  when: ansible_facts['os_family'] | lower == 'archlinux'
 
-- name: "Install Node in Ubuntu"
+- name: "Install packages for node in ubuntu"
   ansible.builtin.import_tasks: ubuntu.yml
   when: ansible_distribution == 'Ubuntu'
+
+- name: Install nvm
+  ansible.builtin.shell: |
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | NVIM_DIR="$HOME/.config/nvm" PROFILE=/dev/null bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.config/nvm/nvm.sh"
+
+- name: Install nodejs
+  ansible.builtin.shell: |
+    . {{ ansible_env.HOME }}/.config/nvm/nvm.sh && nvm install node && nvm install-latest-npm
+  args:
+    creates: "{{ ansible_env.HOME }}/.config/nvm/alias"
+

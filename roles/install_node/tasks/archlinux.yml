@@ -1,9 +1,0 @@
----
-- name: "Install node in archlinux"
-  become: true
-  community.general.pacman:
-    name:
-      - nodejs
-      - npm
-    state: latest
-    update_cache: true

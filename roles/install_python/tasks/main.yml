@@ -7,3 +7,10 @@
 - name: "Install Python in Ubuntu"
   ansible.builtin.import_tasks: ubuntu.yml
   when: ansible_distribution == 'Ubuntu'
+
+- name: "Installing python dev tools"
+  ansible.builtin.pip:
+    name:
+      - isort
+      - black
+    

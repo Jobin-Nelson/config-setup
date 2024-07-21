@@ -3,6 +3,7 @@
   ansible.builtin.apt:
     name: 
       - python3.11
-      - python3.11-venv
+      - python3-venv
+      - python3-pip
     state: latest
     update_cache: true
