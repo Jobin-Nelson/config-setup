@@ -21,7 +21,6 @@
       - zathura
       - zathura-pdf-mupdf
       - mpv
-      - tk
       - starship
       - aria2
       - rsync
@@ -65,10 +64,10 @@
     state: present
   notify: start_docker
 
-- name: "Install Flatpak Packages"
-  community.general.flatpak:
-    name:
-      # - com.github.IsmaelMartinez.teams_for_linux
-      # - com.github.tchx84.Flatseal
-      # - org.gnome.Boxes
-    state: present
+# - name: "Install Flatpak Packages"
+#   community.general.flatpak:
+#     name:
+#       - com.github.IsmaelMartinez.teams_for_linux
+#       - com.github.tchx84.Flatseal
+#       - org.gnome.Boxes
+#     state: present
