@@ -2,7 +2,6 @@
   become: true
   ansible.builtin.apt:
     name: 
-      - python3.11
       - python3-venv
       - python3-pip
     state: latest

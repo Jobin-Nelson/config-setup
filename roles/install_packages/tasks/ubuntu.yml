@@ -44,6 +44,7 @@
   become: true
   community.general.snap:
     name: nvim
+    classic: true
 
 # - name: Installing Neovim
 #   become: true

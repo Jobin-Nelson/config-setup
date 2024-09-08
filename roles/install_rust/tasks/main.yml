@@ -3,7 +3,7 @@
 - name: "Check if cargo is installed"
   ansible.builtin.shell: "command -v cargo"
   register: cargo_exists
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: "Download Rust"
   when: cargo_exists is failed
@@ -17,6 +17,6 @@
   when: cargo_exists is failed
   ansible.builtin.shell: "/tmp/sh.rustup.rs -y"
 
-- name: "Install Rust Analyzer"
-  when: cargo_exists is failed
-  ansible.builtin.shell: ". $HOME/.cargo/env && rustup component add rust-analyzer"
+# - name: "Install Rust Analyzer"
+#   when: cargo_exists is failed
+#   ansible.builtin.shell: ". $HOME/.cargo/env && rustup component add rust-analyzer"

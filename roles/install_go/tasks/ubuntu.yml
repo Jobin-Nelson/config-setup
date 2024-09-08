@@ -1,0 +1,5 @@
+- name: Install Go in Ubuntu
+  become: true
+  community.general.snap:
+    name: go
+    classic: true
