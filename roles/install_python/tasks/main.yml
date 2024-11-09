@@ -1,16 +1,27 @@
 ---
 # tasks file for install_python
-- name: "Install Python in Archlinux"
-  ansible.builtin.import_tasks: archlinux.yml
-  when: ansible_facts['os_family'] | lower == 'archlinux'
+# - name: "Install Python in Archlinux"
+#   ansible.builtin.import_tasks: archlinux.yml
+#   when: ansible_facts['os_family'] | lower == 'archlinux'
+#
+# - name: "Install Python in Ubuntu"
+#   ansible.builtin.import_tasks: ubuntu.yml
+#   when: ansible_distribution == 'Ubuntu'
 
-- name: "Install Python in Ubuntu"
-  ansible.builtin.import_tasks: ubuntu.yml
-  when: ansible_distribution == 'Ubuntu'
+- name: "Check if uv is installed"
+  ansible.builtin.shell: "type uv &> /dev/null"
+  register: uv_exists
+  ignore_errors: true
 
-- name: "Installing python dev tools"
-  ansible.builtin.pip:
-    name:
-      - isort
-      - black
-    
+- name: "Download uv"
+  when: uv_exists is failed
+  ansible.builtin.get_url:
+    url: "https://astral.sh/uv/install.sh"
+    dest: "/tmp/uv_install.sh"
+    mode: "0755"
+    force: "yes"
+
+- name: "Install Rust"
+  when: uv_exists is failed
+  ansible.builtin.shell: "/tmp/uv_install.sh"
+

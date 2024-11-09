@@ -20,7 +20,8 @@
       - network-manager-applet
       - blueman
       - wlr-randr
-      - sddm
+      - ly
       - wofi
+      - wlogout
     state: latest
     update_cache: true

@@ -48,12 +48,12 @@
     state: latest
   notify: start_cronie
 
-- name: "Install Syncthing"
-  become: true
-  community.general.pacman:
-    name: syncthing
-    state: latest
-  notify: start_syncthing
+# - name: "Install Syncthing"
+#   become: true
+#   community.general.pacman:
+#     name: syncthing
+#     state: latest
+#   notify: start_syncthing
 
 - name: "Install Docker"
   become: true

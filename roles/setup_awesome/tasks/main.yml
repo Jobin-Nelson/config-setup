@@ -1,0 +1,26 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for setup_awesome
+- name: "Setup Awesome"
+  become: true
+  community.general.pacman:
+    name:
+      - xorg-server
+      - xorg-xinit
+      - awesome
+      - nitrogen
+      - pipewire-pulse
+      - pipewire-alsa
+      - xclip
+      - scrot
+      - brightnessctl
+      - bluez
+      - bluez-utils
+      - pavucontrol
+      - networkmanager
+      - arandr
+      - ly
+      - i3lock
+    state: latest
+    update_cache: true
+  notify: start_services

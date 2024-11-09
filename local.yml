@@ -28,6 +28,9 @@
     - role: setup_hyprland
       tags: hyprland
 
+    - role: setup_awesome
+      tags: awesome
+
     # - role: install_astronvim
     #   tags: astronvim
 

@@ -1,0 +1,17 @@
+#SPDX-License-Identifier: MIT-0
+---
+# handlers file for setup_awesome
+
+- name: start_services
+  become: true
+  ansible.builtin.service:
+    name: "NetworkManager"
+    state: started
+    enabled: yes
+
+- name: start_services
+  become: true
+  ansible.builtin.service:
+    name: "bluetooth"
+    state: started
+    enabled: yes
