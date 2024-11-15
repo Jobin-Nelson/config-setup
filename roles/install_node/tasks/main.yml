@@ -7,7 +7,7 @@
 
 - name: Install nvm
   ansible.builtin.shell: |
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | NVIM_DIR="$HOME/.config/nvm" PROFILE=/dev/null bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | NVM_DIR="$HOME/.config/nvm" PROFILE=/dev/null bash
   args:
     creates: "{{ ansible_env.HOME }}/.config/nvm/nvm.sh"
 
