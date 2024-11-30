@@ -21,6 +21,7 @@
       - arandr
       - ly
       - i3lock
+      - acpi
     state: latest
     update_cache: true
   notify: start_services
