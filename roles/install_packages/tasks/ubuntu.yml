@@ -12,6 +12,7 @@
       - ripgrep
       - shellcheck
       - fd-find
+      - bat
       - jq
       - vim
       - libfuse2

@@ -13,6 +13,7 @@
       - fzf
       - ripgrep
       - fd
+      - bat
       - nsxiv
       - jq
       - neovim
